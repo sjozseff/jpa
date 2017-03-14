@@ -19,10 +19,12 @@ public class Person {
     private String firstName;
     private String lastName;
 
-    private Family family;
 
+
+    @Transient
     private String nonsenseField = "";
 
+    @OneToMany
     private List<Job> jobList = new ArrayList<Job>();
 
     public String getId() {
@@ -50,16 +52,7 @@ public class Person {
             this.lastName = lastName;
     }
 
-    @ManyToOne
-    public Family getFamily() {
-            return family;
-    }
-
-    public void setFamily(Family family) {
-            this.family = family;
-    }
-
-    @Transient
+   
     public String getNonsenseField() {
             return nonsenseField;
     }
@@ -68,7 +61,7 @@ public class Person {
             this.nonsenseField = nonsenseField;
     }
 
-    @OneToMany
+
     public List<Job> getJobList() {
             return this.jobList;
     }
